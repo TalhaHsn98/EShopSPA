@@ -1,0 +1,95 @@
+<section class="checkout">
+  <div class="col form">
+    <h3>Billing Address</h3>
+
+    <form [formGroup]="form" (ngSubmit)="placeOrder()">
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input formControlName="firstName">
+           <small *ngIf="f['firstName'].touched && f['firstName'].invalid">Required (min 2)</small>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input formControlName="lastName">
+            <small *ngIf="f['lastName'].touched  && f['lastName'].invalid">Required (min 2)</small>
+        </div>
+      </div>
+
+      <label>Email</label>
+      <input formControlName="email">
+      <small *ngIf="f['email'].touched && f['email'].invalid">Valid email required</small>
+
+      <label>Street Address</label>
+      <input formControlName="address">
+      <small *ngIf="f['address'].touched && f['address'].invalid">Required</small>
+
+      <div class="row">
+        <div>
+          <label>City</label>
+          <input formControlName="city">
+            <small *ngIf="f['city'].touched && f['city'].invalid">Required</small>
+
+        </div>
+        <div>
+          <label>State/Province</label>
+          <input formControlName="state">
+            <small *ngIf="f['state'].touched && f['state'].invalid">Required</small>
+        </div>
+        <div>
+          <label>Zip</label>
+          <input formControlName="zip">
+            <small *ngIf="f['zip'].touched && f['zip'].invalid">5-digit zip</small>
+
+        </div>
+      </div>
+
+      <h4>Payment</h4>
+      <div class="row">
+        <div>
+          <label>Card Number</label>
+          <input formControlName="cardNumber" maxlength="16">
+            <small *ngIf="f['cardNumber'].touched && f['cardNumber'].invalid">16 digits</small>
+
+        </div>
+        <div>
+          <label>Expiry (MM/YY)</label>
+          <input formControlName="expiry" placeholder="MM/YY" maxlength="5">
+            <small *ngIf="f['expiry'].touched && f['expiry'].invalid">MM/YY</small>
+
+        </div>
+        <div>
+          <label>CVV</label>
+          <input formControlName="cvv" maxlength="4">
+            <small *ngIf="f['cvv'].touched && f['cvv'].invalid">3–4 digits</small>
+
+        </div>
+      </div>
+
+      <button class="place" type="submit" [disabled]="form.invalid || !items.length">
+        Place Your Order
+      </button>
+    </form>
+  </div>
+
+  <div class="col summary">
+    <h3>Billing Summary</h3>
+
+    <div class="items" *ngIf="items.length; else empty">
+      <div class="line" *ngFor="let it of items">
+        <span>{{ it.product.name }} × {{ it.qty }}</span>
+        <span>{{ (it.product.price * it.qty) | currency:'USD' }}</span>
+      </div>
+
+      <hr>
+      <div class="line"><span>Subtotal</span><span>{{ subtotal | currency:'USD' }}</span></div>
+      <div class="line"><span>Shipping</span><span>{{ shipping | currency:'USD' }}</span></div>
+      <div class="line"><span>Tax</span><span>{{ tax | currency:'USD' }}</span></div>
+      <div class="line total"><span>Grand Total</span><span>{{ total | currency:'USD' }}</span></div>
+    </div>
+
+    <ng-template #empty>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  </div>
+</section>

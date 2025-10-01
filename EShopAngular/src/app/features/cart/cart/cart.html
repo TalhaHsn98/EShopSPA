@@ -19,7 +19,14 @@
     <div>Subtotal:</div>
     <div class="sum">\${{ total | number:'1.2-2' }}</div>
   </div>
+
+  <button class="checkout" [routerLink]="['/checkout']" [disabled]="!items.length">
+        Proceed to Checkout
+  </button>
 </section>
+
+
+
 
 <ng-template #empty>
   <section class="cart empty">

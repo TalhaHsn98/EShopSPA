@@ -26,7 +26,12 @@ import { Router, RouterModule } from '@angular/router';
 
   ],
   exports: [
-    Home
+    Home,
+    Hero,
+    FeaturedProducts,
+    PromoBox,
+    ProductList,
+    ProductDetail
   ]
 })
 export class HomeModule { }

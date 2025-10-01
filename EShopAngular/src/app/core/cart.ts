@@ -33,4 +33,10 @@ export class CartService {
     this.items = this.items.filter(i => i.product.id !== productId);
     this.items$.next([...this.items]);
   }
+
+  clear() {
+  this.items = [];
+  this.items$.next([]);
+}
+
 }

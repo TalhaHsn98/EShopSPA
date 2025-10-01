@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { HomeModule } from './features/home/home-module';
 import { CartModule } from './features/cart/cart-module';
+import { CheckoutModule } from './features/checkout/checkout-module';
 
 
 
@@ -18,7 +19,8 @@ import { CartModule } from './features/cart/cart-module';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
-    CartModule
+    CartModule,
+    CheckoutModule
   ],
   providers: [],
   bootstrap: [App]
