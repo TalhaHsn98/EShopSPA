@@ -7,6 +7,7 @@ import { App } from './app';
 import { HomeModule } from './features/home/home-module';
 import { CartModule } from './features/cart/cart-module';
 import { CheckoutModule } from './features/checkout/checkout-module';
+import { OrdersModule } from './features/orders/orders-module';
 
 
 
@@ -20,7 +21,8 @@ import { CheckoutModule } from './features/checkout/checkout-module';
     HomeModule,
     HttpClientModule,
     CartModule,
-    CheckoutModule
+    CheckoutModule,
+    OrdersModule
   ],
   providers: [],
   bootstrap: [App]

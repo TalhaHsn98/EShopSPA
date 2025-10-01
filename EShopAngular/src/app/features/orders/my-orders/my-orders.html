@@ -1,0 +1,24 @@
+<section class="my-orders">
+  <h2>Your Orders</h2>
+
+  <article class="order" *ngFor="let o of (orders$ | async)">
+    <header>
+      <div><strong>Order placed</strong><br>{{ o.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
+      <div><strong>Total</strong><br>{{ o.totalAmount | currency:'USD' }}</div>
+      <div><strong>Ship to</strong><br>{{ o.customerName }}</div>
+      <div><strong>Shipping Address</strong><br>{{ o.shippingAddress }}</div>
+      <div><strong>Order Status</strong><br>{{ o.status }}</div>
+    </header>
+
+    <div class="items">
+      <div class="line" *ngFor="let it of o.items">
+        <img [src]="it.image" [alt]="it.productName">
+        <div class="meta">
+          <div class="name">{{ it.productName }}</div>
+          <div class="qty">Qty {{ it.qty }}</div>
+        </div>
+        <div class="price">{{ it.price | currency:'USD' }}</div>
+      </div>
+    </div>
+  </article>
+</section>

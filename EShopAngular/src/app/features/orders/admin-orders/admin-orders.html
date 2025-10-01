@@ -1,0 +1,27 @@
+<section class="admin-orders">
+  <h2>All Orders</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Order Date</th><th>Customer Name</th><th>Payment</th>
+        <th>Shipping Address</th><th>Shipping</th><th>Total</th><th>Status</th><th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of (orders$ | async)">
+        <td>{{ o.createdAt | date:'yyyy-MM-dd HH:mm' }}</td>
+        <td>{{ o.customerName }}</td>
+        <td>{{ o.paymentMethod }}</td>
+        <td>{{ o.shippingAddress }}</td>
+        <td>{{ o.shippingMethod }}</td>
+        <td>{{ o.totalAmount | currency:'USD' }}</td>
+        <td>{{ o.status }}</td>
+        <td>
+          <select [ngModel]="o.status" (ngModelChange)="setStatus(o.id, $event)">
+            <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

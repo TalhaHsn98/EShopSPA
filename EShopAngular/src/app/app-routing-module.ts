@@ -4,13 +4,17 @@ import { Home } from './features/home/home/home';
 import { ProductDetail } from './features/home/product-detail/product-detail';
 import { Cart } from './features/cart/cart/cart';
 import { Checkout } from './features/checkout/checkout/checkout';
+import { AdminOrders } from './features/orders/admin-orders/admin-orders';
+import { MyOrders } from './features/orders/my-orders/my-orders';
 
 const routes: Routes = [
 
   { path: '', component: Home},
   {path: 'products/:id', component: ProductDetail},
   { path: 'cart', component: Cart },      
-  { path: 'checkout', component: Checkout }            
+  { path: 'checkout', component: Checkout },
+  { path: 'orders', component: AdminOrders},   // admin view
+  { path: 'my-orders', component: MyOrders}             
 
 ];
 
