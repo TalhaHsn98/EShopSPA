@@ -1,0 +1,16 @@
+.cart { padding: 24px; }
+.row {
+  display: grid; grid-template-columns: 80px 1fr 100px; gap: 16px;
+  align-items: center; padding: 12px 0; border-bottom: 1px solid #eee;
+}
+.row img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+.info h3 { margin: 0 0 6px; font-size: 16px; }
+.price { color: #1a73e8; font-weight: 700; }
+.qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.qty button { padding: 4px 10px; }
+.remove { margin-left: 8px; }
+.summary {
+  margin-top: 16px; display: flex; justify-content: flex-end; gap: 16px;
+  font-size: 18px; font-weight: 700;
+}
+.empty { text-align: center; }

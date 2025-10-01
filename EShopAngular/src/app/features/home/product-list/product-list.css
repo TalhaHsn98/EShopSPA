@@ -1,0 +1,21 @@
+.list { padding: 24px; }
+.toolbar {
+  background: #c9f3cf; display: flex; align-items: center;
+  gap: 12px; padding: 10px; border-radius: 6px;
+}
+.toolbar .spacer { flex: 1; }
+
+.grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: #fff; padding: 16px; border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.card img { width: 100%; height: auto; border-radius: 8px; }
+.card h3 { margin: 10px 0 6px; font-size: 16px; }
+.card .price { color: #1a73e8; font-weight: 700; }
+.card button { margin-top: 8px; border: 0; background: #f7f7f7; padding: 8px 10px; border-radius: 8px; cursor: pointer; }

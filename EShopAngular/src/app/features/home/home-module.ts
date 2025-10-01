@@ -5,6 +5,9 @@ import { Hero } from './hero/hero';
 import { FeaturedProducts } from './featured-products/featured-products';
 import { PromoBox } from './promo-box/promo-box';
 import { SharedModule } from '../../shared/shared-module';
+import { ProductList } from './product-list/product-list';
+import { ProductDetail } from './product-detail/product-detail';
+import { Router, RouterModule } from '@angular/router';
 
 
 
@@ -13,11 +16,14 @@ import { SharedModule } from '../../shared/shared-module';
     Home,
     Hero,
     FeaturedProducts,
-    PromoBox
-  ],
+    PromoBox,
+    ProductList,
+    ProductDetail  ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
+
   ],
   exports: [
     Home

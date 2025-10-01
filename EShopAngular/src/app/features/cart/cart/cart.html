@@ -1,0 +1,29 @@
+<section class="cart" *ngIf="items.length; else empty">
+  <h2>Your Cart</h2>
+  <div class="row" *ngFor="let it of items">
+    <img [src]="it.product.image" [alt]="it.product.name">
+    <div class="info">
+      <h3>{{ it.product.name }}</h3>
+      <p class="price">\${{ it.product.price }}</p>
+      <div class="qty">
+        <button (click)="dec(it)">-</button>
+        <span>{{ it.qty }}</span>
+        <button (click)="inc(it)">+</button>
+        <button class="remove" (click)="remove(it)">Remove</button>
+      </div>
+    </div>
+    <div class="line-total">\${{ (it.product.price * it.qty) | number:'1.2-2' }}</div>
+  </div>
+
+  <div class="summary">
+    <div>Subtotal:</div>
+    <div class="sum">\${{ total | number:'1.2-2' }}</div>
+  </div>
+</section>
+
+<ng-template #empty>
+  <section class="cart empty">
+    <h2>Your cart is empty</h2>
+    <a [routerLink]="['/']">Go shopping</a>
+  </section>
+</ng-template>

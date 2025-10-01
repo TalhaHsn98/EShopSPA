@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PromoBar } from './promo-bar/promo-bar';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { Footer } from './footer/footer';
     Footer
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
 
   exports: [

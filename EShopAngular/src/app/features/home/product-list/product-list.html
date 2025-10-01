@@ -1,0 +1,18 @@
+<section class="list">
+  <div class="toolbar">
+    <label>Category</label>
+    <input value="Electronics" readonly>
+    <span class="spacer"></span>
+    <small>Show 1–{{ products.length }}</small>
+  </div>
+
+  <div *ngIf="loading">Loading…</div>
+
+  <div class="grid" *ngIf="!loading">
+    <article class="card" *ngFor="let p of products" [routerLink]="['/products', p.id]">
+        <img [src]="p.image" [alt]="p.name">
+        <h3>{{ p.name }}</h3>
+        <a class="price">\${{ p.price }}</a>
+    </article>
+  </div>
+</section>
