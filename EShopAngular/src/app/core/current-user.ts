@@ -5,6 +5,6 @@ export type Role = 'customer' | 'admin';
 @Injectable({ providedIn: 'root' })
 export class CurrentUserService {
   userId = 1;                 // pretend “John Doe”
-  role: Role = 'customer';    // change to 'admin' to view admin page
+  role: Role = 'admin';    // change to 'admin' to view admin page
   name = 'John Doe';
 }

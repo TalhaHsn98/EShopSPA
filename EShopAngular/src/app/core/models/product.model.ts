@@ -4,8 +4,11 @@ export interface ProductModel {
   price: number;
   image: string;
   category?: string;
-  rating?: number;
+  subCategory?: string;
+  sku?: string;
+  status?: 'active' | 'inactive';
   description?: string;
+  rating?: number;
   details?: string;
   reviews?: string[];
   videoUrl?: string;

@@ -7,6 +7,8 @@
     <a href="#">Contact</a>
     <a [routerLink]="['/my-orders']" routerLinkActive="active">My Orders</a>
     <a *ngIf="isAdmin" [routerLink]="['/orders']" routerLinkActive="active">All Orders</a>
+      <a *ngIf="isAdmin" [routerLink]="['/admin/users']" routerLinkActive="active">Users</a>
+  <a *ngIf="isAdmin" [routerLink]="['/admin/products/new']" routerLinkActive="active">Add Product</a>
   </nav>
   <div class="actions">
     <button>Account</button>

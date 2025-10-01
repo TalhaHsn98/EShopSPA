@@ -55,4 +55,9 @@ export class OrdersService {
     this.orders$.next([...this.orders]);
     if (status === 'Completed') this.email.sendOrderConfirmation(o);
   }
+
+  listByUser(userId: number) {
+  return this.listAll().pipe(map(all => all.filter(o => o.customerId === userId)));
+}
+
 }

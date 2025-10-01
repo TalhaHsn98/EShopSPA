@@ -6,6 +6,9 @@ import { Cart } from './features/cart/cart/cart';
 import { Checkout } from './features/checkout/checkout/checkout';
 import { AdminOrders } from './features/orders/admin-orders/admin-orders';
 import { MyOrders } from './features/orders/my-orders/my-orders';
+import { Users } from './features/admin/users/users';
+import { AddProduct } from './features/admin/add-product/add-product';
+import { AdminGuard } from './core/admin-guard';
 
 const routes: Routes = [
 
@@ -14,7 +17,11 @@ const routes: Routes = [
   { path: 'cart', component: Cart },      
   { path: 'checkout', component: Checkout },
   { path: 'orders', component: AdminOrders},   // admin view
-  { path: 'my-orders', component: MyOrders}             
+  { path: 'my-orders', component: MyOrders},           
+
+  
+  { path: 'admin/users', component: Users, canActivate: [AdminGuard] },
+  { path: 'admin/products/new', component: AddProduct, canActivate: [AdminGuard] }
 
 ];
 

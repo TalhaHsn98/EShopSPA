@@ -1,0 +1,60 @@
+<section class="add-product">
+  <h2>Add a New Product</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Product Name</label>
+    <input formControlName="name">
+
+    <label>Product Description</label>
+    <textarea rows="5" formControlName="description"></textarea>
+
+    <div class="row">
+      <div>
+        <label>Category</label>
+        <input formControlName="category" placeholder="Electronics">
+      </div>
+      <div>
+        <label>Sub Category</label>
+        <input formControlName="subCategory" placeholder="Phones">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Variation</label>
+        <input formControlName="variation" placeholder="Color">
+      </div>
+      <div>
+        <label>Variation Value</label>
+        <input formControlName="variationValue" placeholder="Black">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Price</label>
+        <input type="number" formControlName="price">
+      </div>
+      <div>
+        <label>Product Image URL</label>
+        <input formControlName="image" placeholder="https://...">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>SKU</label>
+        <input formControlName="sku">
+      </div>
+      <div>
+        <label>Status</label>
+        <select formControlName="status">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Add a Product</button>
+  </form>
+</section>

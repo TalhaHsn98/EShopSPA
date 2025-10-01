@@ -1,0 +1,37 @@
+<section class="users">
+  <h2>Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>Email</th><th>Role</th><th style="width:280px">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of (users$ | async)">
+        <td>
+          <ng-container *ngIf="!editing[u.id]; else nameEdit">{{ u.name }}</ng-container>
+          <ng-template #nameEdit><input [(ngModel)]="u.name"></ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="!editing[u.id]; else emailEdit">{{ u.email }}</ng-container>
+          <ng-template #emailEdit><input [(ngModel)]="u.email"></ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="!editing[u.id]; else roleEdit">{{ u.role }}</ng-container>
+          <ng-template #roleEdit>
+            <select [(ngModel)]="u.role">
+              <option *ngFor="let r of roles" [ngValue]="r">{{ r }}</option>
+            </select>
+          </ng-template>
+        </td>
+        <td>
+          <button *ngIf="!editing[u.id]" (click)="edit(u.id)">Edit</button>
+          <button *ngIf="editing[u.id]" (click)="save(u)">Save</button>
+          <button *ngIf="editing[u.id]" (click)="cancel(u.id)">Cancel</button>
+          <button (click)="remove(u)">Delete</button>
+          <button (click)="viewOrders(u)">View Orders</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

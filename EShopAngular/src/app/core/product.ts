@@ -60,6 +60,13 @@ export class ProductService {
   );
 }
 
+  addProduct(p: Omit<ProductModel, 'id'>) {
+    const id = Math.max(...this.mock.map(m => m.id), 0) + 1;
+    this.mock.push({ id, ...p });
+    alert('Product created (mock).');
+  }
+
+
 
 
 }
