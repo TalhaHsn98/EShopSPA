@@ -15,11 +15,17 @@
         <td>{{ o.shippingAddress }}</td>
         <td>{{ o.shippingMethod }}</td>
         <td>{{ o.totalAmount | currency:'USD' }}</td>
-        <td>{{ o.status }}</td>
         <td>
-          <select [ngModel]="o.status" (ngModelChange)="setStatus(o.id, $event)">
-            <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
-          </select>
+          <span
+            [ngClass]="{
+              'text-success': o.status === 'Completed',
+              'text-warning': o.status === 'OrderPlaced' || o.status === 'Processing',
+              'text-danger' : o.status === 'Cancel',
+              'text-secondary': o.status === 'Shipped'
+            }"
+          >
+            {{ o.status }}
+          </span>
         </td>
       </tr>
     </tbody>

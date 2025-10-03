@@ -7,7 +7,19 @@
       <div><strong>Total</strong><br>{{ o.totalAmount | currency:'USD' }}</div>
       <div><strong>Ship to</strong><br>{{ o.customerName }}</div>
       <div><strong>Shipping Address</strong><br>{{ o.shippingAddress }}</div>
-      <div><strong>Order Status</strong><br>{{ o.status }}</div>
+      <div><strong>Order Status</strong><br>
+        <span
+          [ngClass]="{
+            'text-success': o.status === 'Completed',
+            'text-warning': o.status === 'OrderPlaced' || o.status === 'Processing',
+            'text-danger' : o.status === 'Cancel',
+            'text-secondary': o.status === 'Shipped'
+          }"
+        >
+          {{ o.status }}
+        </span>
+      </div>
+
     </header>
 
     <div class="items">
